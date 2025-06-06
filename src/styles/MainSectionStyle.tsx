@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const MainSectionStyle = styled.section`
-  margin-top: -150px; /* 🔼 Flyttar upp sektionen 150px */
+  margin-top: -100px; /* 🔼 Flyttar upp sektionen 150px */
   z-index: 2; /* 🔼 Ser till att den ligger ovanpå HeroSection */
   position: relative; /* 🔼 Krävs för att z-index ska fungera */
 
@@ -19,27 +19,38 @@ const MainSectionStyle = styled.section`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    /* padding: 1rem; */
     height: 300px;
-    max-width: 1250px;
+    max-width: 1208px;
     margin: 0 auto;
     align-items: stretch;
     /* gap: 3rem; */
   }
 
   .left-side {
+    position: relative; /* krävs för att ::before ska placera sig rätt */
     font-style: italic;
     background: rgba(255, 255, 255, 0.75);
-    border-left: 4px solid #ffc840;
     border-top: 4px solid #ffc840;
-    padding: 1rem 2rem; /* <-- ändra denna rad */
-    height: 300px; /* <-- lägg till denna rad */
-    display: flex; /* för att centrera innehåll likadant */
+    padding: 1rem 2rem;
+    height: 300px;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0;
-    width: 100%;
-    min-width: 548px; /* så att den matchar höger sida */
+    width: 70.1%;
+    min-width: 30%;
+  }
+
+  /* Visuellt kortare border-left */
+  .left-side::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 32px; /* Justera höjd på den kortare border */
+    width: 4px;
+    background-color: #ffc840;
   }
 
   .left-side > p:first-child {
@@ -64,9 +75,10 @@ const MainSectionStyle = styled.section`
   }
 
   .right-side div {
-    padding: 2.2rem 3rem; /* 👈 samma vertikal padding som vänstersidan */
+    position: relative; /* Krävs för ::after */
+    /* padding: 1.4rem 4rem; */
     background: rgba(255, 255, 255, 0.75);
-    min-width: 320px;
+    min-width: 369px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -76,12 +88,27 @@ const MainSectionStyle = styled.section`
     font-size: 1rem;
     line-height: 1.6;
     margin-right: 2rem;
-    height: 300px; /* 👈 så de växer lika mycket */
-    border-right: 4px solid rgba(38, 54, 70, 0.9);
+    height: 300px;
     border-top: 4px solid rgba(38, 54, 70, 0.9);
   }
 
+  /* Visuellt kortare border-right */
+  .right-side div::after {
+    content: "";
+    position: absolute;
+    top: 2rem; /* Justera startposition */
+    right: 0;
+    top: 0;
+    width: 4px;
+    height: 32px; /* Justera höjd */
+    background-color: rgba(38, 54, 70, 0.9);
+  }
+
+  .right-side ::before {
+  }
+
   .right-side img {
+    margin-top: 1rem; /* Justera för att passa in i layouten */
     height: 80px;
     margin-bottom: 1rem;
   }

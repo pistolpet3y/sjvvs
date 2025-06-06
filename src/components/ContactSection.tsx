@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { FaPhone } from "react-icons/fa6";
+import { IoMdMail } from "react-icons/io";
 
 const ContactWrapper = styled.section`
   padding: 4rem 1rem;
@@ -104,13 +106,38 @@ const RightSide = styled.div`
   }
 `;
 
+const Heading = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 2rem;
+  text-align: left;
+  font-style: italic;
+
+  p {
+    color: green;
+    font-weight: bold;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    color: #263646;
+  }
+`;
+
 export default function ContactSection() {
   return (
     <ContactWrapper>
       <ContactContent>
         <LeftSide>
-          <p style={{ color: "green", fontWeight: "bold" }}>KONTAKTA OSS</p>
-          <h2>Vi hjälper dig med VVS-lösningar</h2>
+          <Heading>
+            <p>KONTAKTA OSS</p>
+            <h2>Vi hjälper dig med VVS-lösningar</h2>
+          </Heading>
           <form>
             <label>Namn</label>
             <input type="text" placeholder="Ditt namn" required />
@@ -141,8 +168,19 @@ export default function ContactSection() {
           ></iframe>
 
           <strong>Kontaktuppgifter</strong>
-          <p>📧 info@sjvvs.se</p>
-          <p>📍 Göteborg, Sverige</p>
+          <p>
+            <IoMdMail
+              style={{ marginRight: "0.5rem", verticalAlign: "middle" }}
+            />
+            <a
+              href="mailto:info@sjvvs.se"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              info@sjvvs.se
+            </a>
+          </p>
+
+          <p>Göteborg, Sverige</p>
 
           <strong>Öppettider</strong>
           <p>Mån–Fre: 9:00–18:00</p>
@@ -150,26 +188,78 @@ export default function ContactSection() {
           <p>Sön: Stängt</p>
 
           <div style={{ marginTop: "2rem" }}>
-            <strong>Teamet</strong>
-
-            <div style={{ marginTop: "1rem" }}>
-              <p style={{ marginBottom: "0.2rem", fontWeight: "600" }}>
-                👨‍🔧 Alexander Svensson
+            <div style={{ marginTop: "1.5rem" }}>
+              <p style={{ marginBottom: "0.4rem", fontWeight: "600" }}>
+                Alexander Svensson
               </p>
-              <p style={{ fontSize: "0.9rem", margin: 0 }}>
-                📧 alexander@sjvvs.se
+              <p
+                style={{
+                  fontSize: "0.9rem",
+                  marginBottom: "0.5rem",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <IoMdMail style={{ marginRight: "0.5rem" }} />
+                <a
+                  href="mailto:alexander@sjvvs.se"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  alexander@sjvvs.se
+                </a>
               </p>
-              <p style={{ fontSize: "0.9rem", margin: 0 }}>📞 070-111 22 33</p>
+              <p
+                style={{
+                  fontSize: "0.9rem",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <FaPhone style={{ marginRight: "0.5rem" }} />
+                <a
+                  href="tel:0701112233"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  070-111 22 33
+                </a>
+              </p>
             </div>
 
-            <div style={{ marginTop: "1rem" }}>
-              <p style={{ marginBottom: "0.2rem", fontWeight: "600" }}>
-                👨‍🔧 Nicklas Johansson
+            <div style={{ marginTop: "2rem" }}>
+              <p style={{ marginBottom: "0.4rem", fontWeight: "600" }}>
+                Nicklas Johansson
               </p>
-              <p style={{ fontSize: "0.9rem", margin: 0 }}>
-                📧 nicklas@sjvvs.se
+              <p
+                style={{
+                  fontSize: "0.9rem",
+                  marginBottom: "0.5rem",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <IoMdMail style={{ marginRight: "0.5rem" }} />
+                <a
+                  href="mailto:nicklas@sjvvs.se"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  nicklas@sjvvs.se
+                </a>
               </p>
-              <p style={{ fontSize: "0.9rem", margin: 0 }}>📞 070-444 55 66</p>
+              <p
+                style={{
+                  fontSize: "0.9rem",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <FaPhone style={{ marginRight: "0.5rem" }} />
+                <a
+                  href="tel:0704445566"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  070-444 55 66
+                </a>
+              </p>
             </div>
           </div>
         </RightSide>

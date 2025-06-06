@@ -4,13 +4,14 @@ import { IoMdMail } from "react-icons/io";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Link as ScrollLink, scroller } from "react-scroll";
 import LogoIcon from "../assets/images/sjvvs-logo.c.png";
+import { useState } from "react";
 
 // ====== Offset för varje sektion ======
 const offsetMap: { [key: string]: number } = {
-  hero: -800,
-  main: -80,
-  services: -80,
-  about: -80,
+  hero: -80,
+  main: -60,
+  services: -517,
+  about: -100,
   contact: -80,
 };
 
@@ -39,7 +40,26 @@ const Nav = styled.nav`
   align-items: center;
   z-index: 100;
   background: rgba(255, 255, 255, 0.85);
-  border-bottom: 2px solid #263646;
+`;
+
+const LineBar = styled.div`
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  display: flex;
+  z-index: 99;
+`;
+
+const LeftLine = styled.div`
+  flex: 0 0 60.7%;
+  background-color: #ffc840;
+`;
+
+const RightLine = styled.div`
+  flex: 0 0 39.2%;
+  background-color: #263646;
 `;
 
 const NavLinksWrapper = styled.div`
@@ -63,7 +83,7 @@ const Logo = styled.div`
 
 const NavLinks = styled.div`
   display: flex;
-  gap: 2rem;
+  /* gap: 2rem; */
   align-items: center;
 `;
 
@@ -74,30 +94,37 @@ const LogoScrollLink = styled(ScrollLink)`
 `;
 
 const NavLink = styled(ScrollLink)`
+  position: relative;
   cursor: pointer;
   color: black;
   text-decoration: none;
   font-size: 0.9rem;
-  position: relative;
+  font-weight: 500;
+  text-align: center;
+  width: 90px;
 
-  &.active {
-    font-weight: 700;
-    color: #ffc840;
-  }
-
-  &:after {
+  &::after {
     content: "";
     position: absolute;
-    height: 2px;
-    width: 0%;
+    bottom: -22px;
     left: 0;
-    bottom: -15px;
-    background: #ffc840;
-    transition: width 0.3s ease;
+    width: 100%;
+    height: 8px;
+    background-color: #ffc840;
+    transform: scaleX(0);
+    transform-origin: left; /* eller "center" för att växa från mitten */
+    transition: transform 0.3s ease, background-color 0.3s ease,
+      opacity 0.3s ease;
   }
 
-  &:hover:after {
-    width: 100%;
+  &.active:not(.no-border)::after {
+    transform: scaleX(1);
+  }
+
+  &:hover:not(.no-border)::after {
+    background-color: #263646;
+    opacity: 0.8;
+    transform: scaleX(1);
   }
 `;
 
@@ -139,15 +166,30 @@ export default function Navbar() {
     <>
       <Contact>
         <PhoneIcon />
-        <span style={{ marginRight: "1rem", color: "white" }}>
+        <a
+          href="tel:0123456789"
+          style={{
+            marginRight: "1rem",
+            color: "white",
+            textDecoration: "none",
+          }}
+        >
           0123-456 789
-        </span>
+        </a>
+
         <MailIconWrapper>
           <IoMdMail />
         </MailIconWrapper>
-        <span style={{ marginLeft: "0.5rem", color: "white" }}>
+        <a
+          href="mailto:info@sjvvs.se"
+          style={{
+            marginLeft: "0.5rem",
+            color: "white",
+            textDecoration: "none",
+          }}
+        >
           info@sjvvs.se
-        </span>
+        </a>
       </Contact>
 
       <Nav>
@@ -158,6 +200,8 @@ export default function Navbar() {
             duration={500}
             offset={offsetMap["hero"]}
             spy={true}
+            width={300}
+            activeClass="active"
           >
             <Logo>
               <img
@@ -173,8 +217,10 @@ export default function Navbar() {
             <NavLink
               to="hero"
               smooth={true}
+              isDynamic={true}
               duration={500}
               offset={offsetMap["hero"]}
+              hashSpy={true}
               spy={true}
               activeClass="active"
             >
@@ -194,6 +240,7 @@ export default function Navbar() {
               to="about"
               smooth={true}
               duration={500}
+              isDynamic={true}
               offset={offsetMap["about"]}
               spy={true}
               activeClass="active"
@@ -204,13 +251,17 @@ export default function Navbar() {
               to="contact"
               smooth={true}
               duration={500}
+              isDynamic={true}
               offset={offsetMap["contact"]}
+              hashSpy={true}
               spy={true}
               activeClass="active"
+              className="no-border"
               style={{
                 backgroundColor: "#ffc840",
-                padding: "0.5rem 1rem",
-                borderRadius: "2px",
+                padding: "0.6rem 1.1rem",
+                borderRadius: "4px",
+                border: "1px solid #c7a730",
                 color: "black",
               }}
             >
@@ -219,6 +270,11 @@ export default function Navbar() {
           </NavLinks>
         </NavLinksWrapper>
       </Nav>
+
+      <LineBar>
+        <LeftLine />
+        <RightLine />
+      </LineBar>
     </>
   );
 }

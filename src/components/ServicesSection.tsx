@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import img1 from "../assets/images/badrum.jpg";
-import img2 from "../assets/images/ror.jpg";
+import img1 from "../assets/images/ror.jpg";
+import img2 from "../assets/images/badrum.jpg";
 import img3 from "../assets/images/handfat.jpg";
 
 const ServicesWrapper = styled.section`

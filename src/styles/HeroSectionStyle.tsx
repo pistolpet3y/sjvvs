@@ -16,7 +16,7 @@ const HeroSectionStyle = styled.section`
   background-attachment: fixed;
   background-blend-mode: overlay;
   transform: translateZ(0);
-  height: 500px;
+  height: 430px;
   animation: panBackground 20s linear infinite alternate;
   background-repeat: no-repeat;
 
@@ -46,7 +46,7 @@ const HeroSectionStyle = styled.section`
 
   .left-corner {
     position: absolute;
-    top: 4rem;
+    top: 6rem;
     left: 2rem;
     display: flex;
     align-items: center;
@@ -54,7 +54,7 @@ const HeroSectionStyle = styled.section`
 
   .right-corner {
     position: absolute;
-    top: 17rem;
+    top: 19rem;
     left: 7rem;
     text-align: right;
     font-size: 1.5rem;

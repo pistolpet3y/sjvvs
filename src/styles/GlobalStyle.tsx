@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     /* margin: 0; */
-    background-color: #fdfcf9; /* Mycket ljus färg */
+    background-color: #ffffff; /* Mycket ljus färg */
     color: #222;
     font-family: 'Inter', sans-serif; /* Brödtext */
   }
