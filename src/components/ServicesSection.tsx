@@ -6,13 +6,14 @@ import img3 from "../assets/images/handfat.jpg";
 const ServicesWrapper = styled.section`
   width: 100%;
   background-color: #ffffff;
-  padding: 4rem 1rem;
+  /* padding: 5rem 1rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const Heading = styled.div`
+  /* margin-top: -450px; */
   width: 100%;
   max-width: 1200px;
   margin-bottom: 2rem;

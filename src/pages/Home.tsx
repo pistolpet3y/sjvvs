@@ -8,6 +8,7 @@ import ServicesSection from "../components/ServicesSection";
 import AboutSection from "../components/AboutSection";
 import ContactSection from "../components/ContactSection";
 import styled from "styled-components";
+import Footer from "../components/Footer";
 
 // === Layout Wrappers ===
 const PageWrapper = styled.div`
@@ -16,10 +17,9 @@ const PageWrapper = styled.div`
 
 const SectionWrapper = styled.section`
   width: 100%;
-
-  padding: 4rem 1rem;
   display: flex;
   justify-content: center;
+  padding: 3rem 0;
 `;
 
 const StyledElement = styled(Element)`
@@ -70,6 +70,7 @@ export default function Home() {
           <ContactSection />
         </StyledElement>
       </SectionWrapper>
+      <Footer />
     </PageWrapper>
   );
 }

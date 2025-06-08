@@ -1,12 +1,20 @@
-// components/HeroSection.jsx (or .tsx if you're using TypeScript)
 import HeroSectionStyle, { LogoText } from "../styles/HeroSectionStyle";
 import Logo from "../assets/images/soj.png";
+import heroVideo from "../assets/videos/background.mp4"; // ← Importera videon
 
 export default function HeroSection() {
-  // No 'id' prop is strictly necessary here because Element handles it
   return (
-    // HeroSectionStyle is a styled component, which renders a div by default
     <HeroSectionStyle>
+      {/* Videon läggs bakom innehållet */}
+      <video
+        className="background-video"
+        src={heroVideo}
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+
       <div className="hero-content">
         <div className="left-corner">
           <img

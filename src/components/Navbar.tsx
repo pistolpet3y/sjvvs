@@ -50,15 +50,16 @@ const LineBar = styled.div`
   height: 3px;
   display: flex;
   z-index: 99;
+  background-color: #263646;
 `;
 
 const LeftLine = styled.div`
   flex: 0 0 60.7%;
-  background-color: #ffc840;
+  background-color: #263646;
 `;
 
 const RightLine = styled.div`
-  flex: 0 0 39.2%;
+  flex: 0 0 50.2%;
   background-color: #263646;
 `;
 
@@ -159,9 +160,6 @@ const MailIconWrapper = styled.div`
 
 // ====== Navbar Component ======
 export default function Navbar() {
-  const navigate = useNavigate();
-  const location = useLocation();
-
   return (
     <>
       <Contact>
