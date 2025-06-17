@@ -34,13 +34,13 @@ const HeroSectionStyle = styled.section`
     align-items: center;
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(1px);
     margin: 0 auto;
   }
 
   .left-corner {
     position: absolute;
-    top: 6rem;
+    top: 25%;
     left: 2rem;
     display: flex;
     align-items: center;
@@ -49,7 +49,7 @@ const HeroSectionStyle = styled.section`
 
   .right-corner {
     position: absolute;
-    top: 19rem;
+    top: 60%;
     left: 7rem;
     text-align: right;
     font-size: 1.5rem;

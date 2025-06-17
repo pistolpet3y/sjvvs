@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "connect-history-api-fallback": "^2.0.0",
     "icons": "^1.0.0",
     "locomotive-scroll": "^4.1.4",
     "react": "^19.1.0",

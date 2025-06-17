@@ -1,8 +1,12 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
 export default defineConfig({
-  base: "/sjvvs/",
+  base: '/sjvvs/', // 👈 detta är viktigt för både dev & production
   plugins: [react()],
-})
+  server: {
+    fs: {
+      strict: false,
+    },
+  },
+});

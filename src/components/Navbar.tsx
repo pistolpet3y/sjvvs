@@ -4,13 +4,12 @@ import { IoMdMail } from "react-icons/io";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Link as ScrollLink, scroller } from "react-scroll";
 import LogoIcon from "../assets/images/sjvvs-logo.c.png";
-import { useState } from "react";
 
 // ====== Offset för varje sektion ======
 const offsetMap: { [key: string]: number } = {
   hero: -80,
-  main: -60,
-  services: -517,
+  main: -65,
+  services: -460,
   about: -100,
   contact: -80,
 };
@@ -38,8 +37,9 @@ const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.85);
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 2px 40px rgba(0, 0, 0, 0.35);
 `;
 
 const LineBar = styled.div`
@@ -103,29 +103,59 @@ const NavLink = styled(ScrollLink)`
   font-weight: 500;
   text-align: center;
   width: 90px;
+  padding: 0.6rem 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   &::after {
     content: "";
     position: absolute;
-    bottom: -22px;
+    bottom: -12px;
     left: 0;
     width: 100%;
-    height: 8px;
-    background-color: #ffc840;
+    height: 6px;
+    background-color: #263646; /* blå för hover */
     transform: scaleX(0);
-    transform-origin: left; /* eller "center" för att växa från mitten */
-    transition: transform 0.3s ease, background-color 0.3s ease,
-      opacity 0.3s ease;
+    transform-origin: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
   }
 
-  &.active:not(.no-border)::after {
+  &.active::after {
     transform: scaleX(1);
-  }
-
-  &:hover:not(.no-border)::after {
+    position: absolute;
+    bottom: 1px;
     background-color: #263646;
-    opacity: 0.8;
+  }
+
+  &.active {
+    background-color: rgba(38, 54, 70, 0.09);
+    padding: 1.4rem 0;
+    z-index: 1;
+    color: black; /* vit text vid aktiv */
+    font-weight: 500;
+  }
+
+  &.active::before {
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid #263646;
+  }
+
+  &:hover:not(.active)::after {
     transform: scaleX(1);
+    position: absolute;
+    bottom: -12px;
+    background-color: #263646;
+  }
+
+  &:hover:not(.active) {
+    color: black;
   }
 `;
 
@@ -215,10 +245,10 @@ export default function Navbar() {
             <NavLink
               to="hero"
               smooth={true}
-              isDynamic={true}
+              /* isDynamic={true} */
               duration={500}
               offset={offsetMap["hero"]}
-              hashSpy={true}
+              /* hashSpy={true} */
               spy={true}
               activeClass="active"
             >
@@ -238,7 +268,7 @@ export default function Navbar() {
               to="about"
               smooth={true}
               duration={500}
-              isDynamic={true}
+              /* isDynamic={true} */
               offset={offsetMap["about"]}
               spy={true}
               activeClass="active"
@@ -249,19 +279,19 @@ export default function Navbar() {
               to="contact"
               smooth={true}
               duration={500}
-              isDynamic={true}
+              /* isDynamic={true} */
               offset={offsetMap["contact"]}
-              hashSpy={true}
+              /* hashSpy={true} */
               spy={true}
               activeClass="active"
-              className="no-border"
+              /* className="no-border"
               style={{
                 backgroundColor: "#ffc840",
                 padding: "0.6rem 1.1rem",
                 borderRadius: "4px",
                 border: "1px solid #c7a730",
                 color: "black",
-              }}
+              }} */
             >
               Kontakt
             </NavLink>

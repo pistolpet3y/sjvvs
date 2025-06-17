@@ -24,7 +24,7 @@ export default function HeroSection() {
               height: "85px",
               width: "auto",
               paddingRight: "1rem",
-              marginTop: "1rem",
+              marginTop: "5rem",
             }}
           />
           <LogoText>

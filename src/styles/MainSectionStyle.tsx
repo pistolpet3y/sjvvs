@@ -33,7 +33,7 @@ const MainSectionStyle = styled.section`
     font-style: italic;
     background: rgba(255, 255, 255, 0.7);
     /*     border-top: 4px solid #ffc840; */
-    padding: 1rem 2rem;
+    /* padding: 1rem 2rem; */
     height: 300px;
     display: flex;
     flex-direction: column;
